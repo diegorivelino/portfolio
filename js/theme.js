@@ -1,17 +1,8 @@
-/*
-================================================================
-* Template:  	 Simone - Personal Portfolio Template
-* Written by: 	 Harnish Design - (http://www.harnishdesign.net)
-* Description:   Main Custom Script File
-================================================================
-*/
-
-
-(function($) {
+(function ($) {
     "use strict";
 
     // Preloader
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         $('.lds-ellipsis').fadeOut(); // will first fade out the loading animation
         $('.preloader').delay(333).fadeOut('slow'); // will fade out the white DIV that covers the website.
         $('body').delay(333);
@@ -19,7 +10,7 @@
 
 
     // Header Sticky
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         var stickytop = $('#header.sticky-top .bg-transparent');
         var stickytopslide = $('#header.sticky-top-slide');
 
@@ -42,7 +33,7 @@
 
     // Sections Scroll
     if ($("body").hasClass("side-header")) {
-        $('.smooth-scroll').on('click', function() {
+        $('.smooth-scroll').on('click', function () {
             event.preventDefault();
             var sectionTo = $(this).attr('href');
             $('html, body').stop().animate({
@@ -50,7 +41,7 @@
             }, 1500, 'easeInOutExpo');
         });
     } else {
-        $('.smooth-scroll').on('click', function() {
+        $('.smooth-scroll').on('click', function () {
             event.preventDefault();
             var sectionTo = $(this).attr('href');
             $('html, body').stop().animate({
@@ -60,26 +51,26 @@
     }
 
     // Mobile Menu
-    $('.navbar-toggler').on('click', function() {
+    $('.navbar-toggler').on('click', function () {
         $(this).toggleClass('show');
     });
-    $(".navbar-nav a").on('click', function() {
+    $(".navbar-nav a").on('click', function () {
         $(".navbar-collapse, .navbar-toggler").removeClass("show");
     });
 
     // Overlay Menu & Side Open Menu
-    $('.navbar-side-open .collapse, .navbar-overlay .collapse').on('show.bs.collapse hide.bs.collapse', function(e) {
-            e.preventDefault();
-        }),
-        $('.navbar-side-open [data-toggle="collapse"], .navbar-overlay [data-toggle="collapse"]').on('click', function(e) {
+    $('.navbar-side-open .collapse, .navbar-overlay .collapse').on('show.bs.collapse hide.bs.collapse', function (e) {
+        e.preventDefault();
+    }),
+        $('.navbar-side-open [data-toggle="collapse"], .navbar-overlay [data-toggle="collapse"]').on('click', function (e) {
             e.preventDefault();
             $($(this).data('target')).toggleClass('show');
         })
 
     /*---------------------------------
        Carousel (Owl Carousel)
-    ----------------------------------- */
-    $(".owl-carousel").each(function(index) {
+    ----------------------------------- 
+    $(".owl-carousel").each(function (index) {
         var a = $(this);
         $(this).owlCarousel({
             autoplay: a.data('autoplay'),
@@ -116,13 +107,13 @@
                 }
             }
         });
-    });
+    });*/
 
     /*------------------------------------
         Magnific Popup
     -------------------------------------- */
     // Image on Modal
-    $('.popup-img-gallery').each(function() {
+    $('.popup-img-gallery').each(function () {
         $(this).magnificPopup({
             delegate: '.popup-img:visible',
             type: "image",
@@ -138,7 +129,7 @@
     });
 
     // Ajax On Modal 
-    $('.popup-ajax-gallery').each(function() {
+    $('.popup-ajax-gallery').each(function () {
         $(this).magnificPopup({
             delegate: '.popup-ajax:visible',
             type: "ajax",
@@ -150,8 +141,8 @@
                 enabled: true,
             },
             callbacks: {
-                ajaxContentAdded: function() {
-                    $(".owl-carousel").each(function(index) {
+                ajaxContentAdded: function () {
+                    $(".owl-carousel").each(function (index) {
                         var a = $(this);
                         $(this).owlCarousel({
                             autoplay: a.data('autoplay'),
@@ -195,7 +186,7 @@
     });
 
     // YouTube/Viemo Video & Gmaps
-    $('.popup-youtube, .popup-vimeo, .popup-gmaps').each(function() {
+    $('.popup-youtube, .popup-vimeo, .popup-gmaps').each(function () {
         $(this).magnificPopup({
             type: 'iframe',
             mainClass: 'mfp-fade',
@@ -206,14 +197,14 @@
     /*------------------------------------
         Isotope Portfolio Filter
     -------------------------------------- */
-    $(window).on('load', function() {
-        $(".portfolio-filter").each(function() {
+    $(window).on('load', function () {
+        $(".portfolio-filter").each(function () {
             var e = $(this);
-            e.imagesLoaded(function() {
+            e.imagesLoaded(function () {
                 var $grid = e.isotope({
                     layoutMode: "masonry",
                 });
-                $(".portfolio-menu").find("a").on("click", function() {
+                $(".portfolio-menu").find("a").on("click", function () {
                     var filterValue = $(this).attr("data-filter");
                     return $(".portfolio-menu").find("a").removeClass("active"), $(this).addClass("active"),
                         $grid.isotope({
@@ -227,7 +218,7 @@
     /*------------------------------------
         Parallax Background
     -------------------------------------- */
-    $(".parallax").each(function() {
+    $(".parallax").each(function () {
         $(this).parallaxie({
             speed: 0.5,
         });
@@ -236,8 +227,8 @@
     /*------------------------------------
         Counter
     -------------------------------------- */
-    $(".counter").each(function() {
-        $(this).appear(function() {
+    $(".counter").each(function () {
+        $(this).appear(function () {
             $(this).countTo({
                 speed: 1800,
             });
@@ -247,7 +238,7 @@
     /*------------------------------------
         Text Rotator
     -------------------------------------- */
-    $(".text-rotator").each(function() {
+    $(".text-rotator").each(function () {
         $(this).Morphext({
             speed: 3000, // Overrides default 2000
         });
@@ -257,7 +248,7 @@
         Typed
     -------------------------------------- */
 
-    $(".typed").each(function() {
+    $(".typed").each(function () {
         var typed = new Typed('.typed', {
             stringsElement: '.typed-strings',
             loop: true,
@@ -271,7 +262,7 @@
         WOW animation
     -------------------------------------- */
 
-    $(".wow").each(function() {
+    $(".wow").each(function () {
         if ($(window).width() > 767) {
             var wow = new WOW({
                 boxClass: 'wow',
@@ -288,7 +279,7 @@
         YTPlayer YouTube Background
     -------------------------------------- */
 
-    $(".player").each(function() {
+    $(".player").each(function () {
         $(this).mb_YTPlayer();
     });
 
@@ -302,8 +293,8 @@
     /*------------------------
        Scroll to top
     -------------------------- */
-    $(function() {
-        $(window).on('scroll', function() {
+    $(function () {
+        $(window).on('scroll', function () {
             if ($(this).scrollTop() > 400) {
                 $('#back-to-top').fadeIn();
             } else {
@@ -311,7 +302,7 @@
             }
         });
     });
-    $('#back-to-top').on("click", function() {
+    $('#back-to-top').on("click", function () {
         $('html, body').animate({
             scrollTop: 0
         }, 'slow');
@@ -325,22 +316,22 @@
     var submit = $('#submit-btn'); // submit button
 
     // form submit event
-    form.on('submit', function(e) {
+    /*form.on('submit', function (e) {
         e.preventDefault(); // prevent default form submit
 
         if (typeof $('#google-recaptcha-v3').val() != "undefined") {
-            grecaptcha.ready(function() {
+            grecaptcha.ready(function () {
                 var site_key = $('#google-recaptcha-v3').attr('src').split("render=")[1];
                 grecaptcha.execute(site_key, {
                     action: 'contact'
-                }).then(function(token) {
+                }).then(function (token) {
                     var gdata = form.serialize() + '&g-recaptcha-response=' + token;
                     $.ajax({
                         url: 'php/mail.php', // form action url
                         type: 'POST', // form submit method get/post
                         dataType: 'json', // request type html/json/xml
                         data: gdata, // serialize form data
-                        beforeSend: function() {
+                        beforeSend: function () {
                             submit.attr("disabled", "disabled");
                             var loadingText = '<span role="status" aria-hidden="true" class="spinner-border spinner-border-sm align-self-center mr-2"></span>Sending.....'; // change submit button text
                             if (submit.html() !== loadingText) {
@@ -348,20 +339,20 @@
                                 submit.html(loadingText);
                             }
                         },
-                        success: function(data) {
+                        success: function (data) {
                             submit.before(data.Message).fadeIn("slow"); // fade in response data 
                             submit.html(submit.data('original-text')); // reset submit button text
                             submit.removeAttr("disabled", "disabled");
                             if (data.response == 'success') {
                                 form.trigger('reset'); // reset form
                             }
-                            setTimeout(function() {
-                                $('.alert-dismissible').fadeOut('slow', function() {
+                            setTimeout(function () {
+                                $('.alert-dismissible').fadeOut('slow', function () {
                                     $(this).remove();
                                 });
                             }, 3000);
                         },
-                        error: function(e) {
+                        error: function (e) {
                             console.log(e)
                         }
                     });
@@ -373,7 +364,7 @@
                 type: 'POST', // form submit method get/post
                 dataType: 'json', // request type html/json/xml
                 data: form.serialize(), // serialize form data
-                beforeSend: function() {
+                beforeSend: function () {
                     submit.attr("disabled", "disabled");
                     var loadingText = '<span role="status" aria-hidden="true" class="spinner-border spinner-border-sm align-self-center mr-2"></span>Sending.....'; // change submit button text
                     if (submit.html() !== loadingText) {
@@ -381,15 +372,15 @@
                         submit.html(loadingText);
                     }
                 },
-                success: function(data) {
+                success: function (data) {
                     submit.before(data.Message).fadeIn("slow"); // fade in response data 
                     submit.html(submit.data('original-text')); // reset submit button text
                     submit.removeAttr("disabled", "disabled");
                     if (data.response == 'success') {
                         form.trigger('reset'); // reset form
                     }
-                    setTimeout(function() {
-                        $('.alert-dismissible').fadeOut('slow', function() {
+                    setTimeout(function () {
+                        $('.alert-dismissible').fadeOut('slow', function () {
                             $(this).remove();
                         });
                     }, 3000);
@@ -397,11 +388,11 @@
                         grecaptcha.reset(); // reset reCaptcha
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     console.log(e)
                 }
             });
         }
-    });
+    });*/
 
 })(jQuery)
